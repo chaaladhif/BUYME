@@ -1,0 +1,81 @@
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    /*background-color: #f8f8f8;*/
+}
+
+.login-info {
+    width: 40%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.login-info p {
+    margin-bottom: 20px;
+}
+
+.signup-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f4f1de;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    color: #3d405b;
+}
+
+.signup-link:hover {
+    background-color: #f4f1de;
+}
+
+.login-form {
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.forgot-password-link {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #3d405b;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+    color: #3d405b;
+}
+
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f4f1de;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #f4f1de;
+}

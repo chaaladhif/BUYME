@@ -1,7 +1,7 @@
-/*blue:#3a86ff yellow: #ffbe0b orange: #fb5607 */
+/*nude: f2cc8f bluesky: 81b29a  blue: 3d405b orange: e07a5f grey: f4f1de*/
 .promo-bar {
     width: 100%;
-    background-color: #8338ec;
+    background-color: #81b29a;
     color: white;
     text-align: center;
     padding: 1px 0;
@@ -11,17 +11,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ff006e;
-    color: white;
+    background-color: #f8f8f8;
+    /*color: #3d405b;*/
     height: 100px;
     padding-left: calc((100% - 1305px) / 2);
     padding-right: calc((100% - 1305px) / 2);
 }
 
 .logo {
-    color: white;
+    color: #3d405b;
     text-decoration: none;
-    font-size: 24px;
+    font-family: "Syne Mono";
+    font-size: 30px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -36,10 +37,10 @@
 }
 
 .search-bar input {
-    width: 80%;
+    width: 60%;
     padding: 10px;
-    border-radius: 5em;
     border: 1px solid #ccc;
+    text-align: right;
 }
 .nav-links {
     display: flex;
@@ -48,7 +49,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: #3d405b;
     text-decoration: none;
     margin-left: 20px;
 }

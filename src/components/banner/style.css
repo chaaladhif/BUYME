@@ -1,0 +1,24 @@
+.banner {
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #f4f1de;
+    padding: 10px 0;
+    position: relative;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.banner-image img {
+    width: 100%;
+    height: 3em;
+    object-fit: cover;
+}

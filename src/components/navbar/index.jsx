@@ -9,30 +9,26 @@ const Navbar = () => {
             </div>
             <nav className="navbar">
                 <Link to="/" className="logo">
-                    <p>Shop</p>
-                    <p>Me</p>
+                    <p>BUYME</p>
                 </Link>
                 <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Rechercher un produit, un article, une idée"
-                    />
+                    <input type="text" placeholder="RECHERCHER" />
                 </div>
                 <div className="nav-links">
-                    <Link to="/Info">
-                        <i className="fa-solid fa-location-dot"></i>
+                    <Link to="Info">
+                        {/* <i className="fa-solid fa-location-dot"></i>*/}
                         <p>Magasin</p>
                     </Link>
                     <Link to="Login">
-                        <i className="fa-solid fa-user"></i>
+                        {/*<i className="fa-solid fa-user"></i>*/}
                         <p>Se connecter</p>
                     </Link>
                     <Link to="Favorie">
-                        <i className="fa-solid fa-heart"></i>
+                        {/*<i className="fa-solid fa-heart"></i>*/}
                         <p>Favorie</p>
                     </Link>
                     <Link to="/Panier">
-                        <i className="fa-solid fa-store"></i>
+                        {/*<i className="fa-solid fa-store"></i>*/}
                         <p>Panier</p>
                     </Link>
                 </div>

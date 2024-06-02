@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "imageUrl": "/src/assets/blazer.webp",
+        "title": "CHEMISE PATCHWORK À RAYURES",
+        "price": 29.99,
+        "description": "Description du produit 1."
+    },
+    {
+        "id": 2,
+        "imageUrl": "/src/assets/chemise.webp",
+        "title": "CHEMISE PATCHWORK À RAYURES",
+        "price": 39.99,
+        "description": "Description du produit 2."
+    },
+    {
+        "id": 3,
+        "imageUrl": "/src/assets/crop top.webp",
+        "title": "CROP TOP PATCHWORK À RAYURES",
+        "price": 49.99,
+        "description": "Description du produit 3."
+    },
+    {
+        "id": 4,
+        "imageUrl": "/src/assets/ensemble.webp",
+        "title": "ENSEMBLE À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 5,
+        "imageUrl": "/src/assets/manteau.webp",
+        "title": "MANTEAU PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 6,
+        "imageUrl": "/src/assets/pontallon.webp",
+        "title": "PONTALON PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 7,
+        "imageUrl": "/src/assets/pull.webp",
+        "title": "PULL PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 8,
+        "imageUrl": "/src/assets/robe.webp",
+        "title": "ROBE PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 9,
+        "imageUrl": "/src/assets/banane.webp",
+        "title": "BANANE PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 10,
+        "imageUrl": "/src/assets/chemise2.webp",
+        "title": "BLAZER PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 10,
+        "imageUrl": "/src/assets/veste longue.webp",
+        "title": "BLAZER PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    },
+    {
+        "id": 10,
+        "imageUrl": "/src/assets/blazer2.webp",
+        "title": "BLAZER PATCHWORK À RAYURES",
+        "price": 59.99,
+        "description": "Description du produit 4."
+    }
+]
