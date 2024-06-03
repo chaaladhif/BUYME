@@ -1,4 +1,4 @@
-# shopMe: Un Site E-commerce
+# BUYME: Un Site E-commerce
 
 ---
 
