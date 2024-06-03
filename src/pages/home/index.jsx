@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Banner from "../../components/banner";
+import Banner from "../../components/banner/index";
 import "./style.css";
-//import datas from "../../services/datas.json";
-import Product from "../../components/product";
-function Home() {
+import Product from "../../components/product/index";
+
+function Home({ searchTerm }) {
+    // Ajoutez searchTerm en prop
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -13,13 +14,17 @@ function Home() {
             .catch((error) => console.error("Error loading products:", error));
     }, []);
 
+    const filteredProducts = products.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div>
             <Banner />
             <div className="products">
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <Product
-                        key={product.id}
+                        key={product.id} // Utilisez un identifiant unique
                         imageURL={product.imageUrl}
                         title={product.title}
                         price={product.price}

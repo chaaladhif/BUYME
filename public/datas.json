@@ -70,14 +70,14 @@
         "description": "Description du produit 4."
     },
     {
-        "id": 10,
+        "id": 11,
         "imageUrl": "/src/assets/veste longue.webp",
         "title": "BLAZER PATCHWORK À RAYURES",
         "price": 59.99,
         "description": "Description du produit 4."
     },
     {
-        "id": 10,
+        "id": 12,
         "imageUrl": "/src/assets/blazer2.webp",
         "title": "BLAZER PATCHWORK À RAYURES",
         "price": 59.99,

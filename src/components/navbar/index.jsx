@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./style.css";
-import map from "../../assets/map.svg";
-const Navbar = () => {
+const Navbar = ({ setSearchTerm }) => {
+    const [inputValue, setInputValue] = useState("");
+
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+        setSearchTerm(e.target.value); // Mettez à jour le terme de recherche dans Home
+    };
     return (
         <>
             <div className="promo-bar">
@@ -12,7 +18,12 @@ const Navbar = () => {
                     <p>BUYME</p>
                 </Link>
                 <div className="search-bar">
-                    <input type="text" placeholder="RECHERCHER" />
+                    <input
+                        type="text"
+                        placeholder="RECHERCHER"
+                        value={inputValue}
+                        onChange={handleInputChange}
+                    />
                 </div>
                 <div className="nav-links">
                     <Link to="Info">
