@@ -1,0 +1,8 @@
+.favorites-container {
+    padding: 1em 5em;
+}
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

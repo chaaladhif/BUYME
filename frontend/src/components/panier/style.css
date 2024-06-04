@@ -1,0 +1,8 @@
+.cart-container {
+    padding: 1em 5em;
+}
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

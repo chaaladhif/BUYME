@@ -3,7 +3,7 @@ import Banner from "../../components/banner/index";
 import "./style.css";
 import Product from "../../components/product/index";
 
-function Home({ searchTerm, favorites, setFavorites }) {
+function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -44,6 +44,9 @@ function Home({ searchTerm, favorites, setFavorites }) {
                         isFavorite={favorites.some(
                             (fav) => fav.id === product.id
                         )}
+                        onAddToCart={(product) => {
+                            setCart([...cart, product]);
+                        }}
                     />
                 ))}
             </div>

@@ -13,6 +13,7 @@ import Favorie from "./components/favorie/index";
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [favorites, setFavorites] = useState([]); // Initialisez avec une liste vide
+    const [cart, setCart] = useState([]); // Initialisez avec une liste vide pour le panier
 
     return (
         <Router>
@@ -24,7 +25,9 @@ function App() {
                         <Home
                             searchTerm={searchTerm}
                             favorites={favorites}
-                            setFavorites={setFavorites} // Passer la fonction setFavorites
+                            setFavorites={setFavorites}
+                            cart={cart}
+                            setCart={setCart}
                         />
                     }
                 />
@@ -37,7 +40,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/product" element={<Product />} />
                 <Route path="/Info" element={<Info />} />
-                <Route path="/Panier" element={<Panier />} />
+                <Route path="/Panier" element={<Panier cart={cart} />} />
             </Routes>
             <Footer />
         </Router>
