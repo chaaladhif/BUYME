@@ -79,7 +79,7 @@ MongoDB
 ---
 
 1. Clone the project:
-   git clone https://github.com/chaaladhif/chaaladhif.git
+   git clone https://github.com/chaaladhif/BUYME.git
 
 2. Go to the project directory
    cd shopme

@@ -12,12 +12,17 @@ import Panier from "./components/panier/index";
 import Favorie from "./components/favorie/index";
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [favorites, setFavorites] = useState([]); // Initialisez avec une liste vide
-    const [cart, setCart] = useState([]); // Initialisez avec une liste vide pour le panier
+    const [favorites, setFavorites] = useState([]);
+    const [cart, setCart] = useState([]); // État pour le panier
 
     return (
         <Router>
-            <Navbar setSearchTerm={setSearchTerm} />
+            <Navbar
+                setSearchTerm={setSearchTerm}
+                cart={cart}
+                setCart={setCart}
+            />{" "}
+            {/* Passer cart et setCart */}
             <Routes>
                 <Route
                     path="/"
@@ -27,7 +32,7 @@ function App() {
                             favorites={favorites}
                             setFavorites={setFavorites}
                             cart={cart}
-                            setCart={setCart}
+                            setCart={setCart} // Passer cart et setCart
                         />
                     }
                 />
@@ -35,12 +40,14 @@ function App() {
                     path="/Favorie"
                     element={<Favorie favorites={favorites} />}
                 />
-
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/product" element={<Product />} />
                 <Route path="/Info" element={<Info />} />
-                <Route path="/Panier" element={<Panier cart={cart} />} />
+                <Route
+                    path="/Panier"
+                    element={<Panier cart={cart} setCart={setCart} />}
+                />
             </Routes>
             <Footer />
         </Router>

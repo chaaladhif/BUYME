@@ -1,0 +1,32 @@
+.cart-product {
+    width: 23%;
+    margin-top: 2em;
+    transition: box-shadow 0.3s;
+    position: relative;
+}
+.cart-product-img {
+    width: 85%;
+}
+
+/*.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s;
+    position: absolute;
+    right: 15%;
+    z-index: 1;
+
+    font-size: 1.5em;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}*/

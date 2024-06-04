@@ -1,17 +1,19 @@
 import "./style.css";
-import Product from "../../components/product/index";
+import CartProduct from "../cardproduct/index";
+function Panier({ cart, setCart }) {
+    const handleRemoveFromCart = (productId) => {
+        setCart(cart.filter((product) => product.id !== productId));
+    };
 
-function Panier({ cart }) {
     return (
         <div className="cart-container">
             <h2>Panier</h2>
             <div className="cart">
                 {cart.map((product) => (
-                    <Product
+                    <CartProduct
                         key={product.id}
-                        imageURL={product.imageUrl}
-                        title={product.title}
-                        price={product.price}
+                        product={product}
+                        onRemoveFromCart={handleRemoveFromCart}
                     />
                 ))}
             </div>

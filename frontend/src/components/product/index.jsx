@@ -10,6 +10,7 @@ function Product({
     isFavorite,
     product,
     onAddToCart,
+    onRemoveFromCart,
 }) {
     return (
         <div className="product">
@@ -22,7 +23,7 @@ function Product({
                         ? "icon-button heart clicked"
                         : "icon-button heart"
                 }
-                onClick={() => onFavoriteToggle(product)}
+                onClick={onFavoriteToggle}
             >
                 <i
                     className={
@@ -35,10 +36,7 @@ function Product({
             <div className="product-title">{title}</div>
             <div className="product-icons">
                 <div className="product-price">{price} €</div>
-                <button
-                    className="icon-button"
-                    onClick={() => onAddToCart(product)}
-                >
+                <button className="icon-button" onClick={onAddToCart}>
                     <i className="fa-solid fa-plus icon"></i>
                 </button>
             </div>

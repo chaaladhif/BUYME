@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./style.css";
-const Navbar = ({ setSearchTerm }) => {
+const Navbar = ({ setSearchTerm, cart, setCart }) => {
     const [inputValue, setInputValue] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [cartCount, setCartCount] = useState(0); // État pour le nombre de produits dans le panier
     const navigate = useNavigate();
+
     useEffect(() => {
         // Vérifiez si l'utilisateur est connecté au chargement du composant
         const user = JSON.parse(localStorage.getItem("user"));
@@ -12,11 +14,17 @@ const Navbar = ({ setSearchTerm }) => {
             setIsLoggedIn(true);
         }
     }, []);
+
     useEffect(() => {
         // Mettez à jour l'état de connexion lorsque l'utilisateur se déconnecte ou se connecte
         const user = JSON.parse(localStorage.getItem("user"));
         setIsLoggedIn(!!user);
     }, [isLoggedIn]); // Écoutez les changements de l'état de connexion
+
+    useEffect(() => {
+        // Mettez à jour cartCount avec le nombre de produits dans le panier
+        setCartCount(cart.length);
+    }, [cart]);
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -64,7 +72,8 @@ const Navbar = ({ setSearchTerm }) => {
                         <p>Favorie</p>
                     </Link>
                     <Link to="/Panier">
-                        <p>Panier</p>
+                        <p>Panier ({cartCount})</p>{" "}
+                        {/* Afficher le nombre de produits dans le panier */}
                     </Link>
                 </div>
             </nav>

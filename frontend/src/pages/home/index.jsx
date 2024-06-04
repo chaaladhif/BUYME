@@ -17,6 +17,18 @@ function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const handleFavoriteToggle = (product) => {
+        if (favorites.some((fav) => fav.id === product.id)) {
+            setFavorites(favorites.filter((fav) => fav.id !== product.id));
+        } else {
+            setFavorites([...favorites, product]);
+        }
+    };
+
+    const handleAddToCart = (product) => {
+        setCart([...cart, product]); // Ajouter le produit au panier
+    };
+
     return (
         <div>
             <Banner />
@@ -28,25 +40,11 @@ function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
                         title={product.title}
                         price={product.price}
                         product={product}
-                        onFavoriteToggle={(product) => {
-                            if (
-                                favorites.some((fav) => fav.id === product.id)
-                            ) {
-                                setFavorites(
-                                    favorites.filter(
-                                        (fav) => fav.id !== product.id
-                                    )
-                                );
-                            } else {
-                                setFavorites([...favorites, product]);
-                            }
-                        }}
+                        onFavoriteToggle={() => handleFavoriteToggle(product)}
                         isFavorite={favorites.some(
                             (fav) => fav.id === product.id
                         )}
-                        onAddToCart={(product) => {
-                            setCart([...cart, product]);
-                        }}
+                        onAddToCart={() => handleAddToCart(product)} // Passer la fonction pour ajouter au panier
                     />
                 ))}
             </div>
