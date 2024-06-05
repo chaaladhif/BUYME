@@ -1,5 +1,5 @@
 import "./style.css";
-import CartProduct from "../cardproduct/index";
+import Product from "../product/index";
 function Panier({ cart, setCart }) {
     const handleRemoveFromCart = (productId) => {
         setCart(cart.filter((product) => product.id !== productId));
@@ -10,10 +10,18 @@ function Panier({ cart, setCart }) {
             <h2>Panier</h2>
             <div className="cart">
                 {cart.map((product) => (
-                    <CartProduct
+                    <Product
                         key={product.id}
+                        imageURL={product.imageUrl}
+                        title={product.title}
+                        price={product.price}
                         product={product}
-                        onRemoveFromCart={handleRemoveFromCart}
+                        onRemoveFromCart={() =>
+                            handleRemoveFromCart(product.id)
+                        } // Passer l'id du produit
+                        showFavoriteButton={false}
+                        showAddButton={false}
+                        showRemoveButton={true}
                     />
                 ))}
             </div>

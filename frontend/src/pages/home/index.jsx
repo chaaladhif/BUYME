@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Banner from "../../components/banner/index";
 import "./style.css";
 import Product from "../../components/product/index";
-
+import Favorie from "../../components/favorie/index";
 function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
     const [products, setProducts] = useState([]);
 
@@ -44,10 +44,11 @@ function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
                         isFavorite={favorites.some(
                             (fav) => fav.id === product.id
                         )}
-                        onAddToCart={() => handleAddToCart(product)} // Passer la fonction pour ajouter au panier
+                        onAddToCart={() => handleAddToCart(product)}
                     />
                 ))}
             </div>
+            <Favorie favorites={favorites} handleAddToCart={handleAddToCart} />
         </div>
     );
 }

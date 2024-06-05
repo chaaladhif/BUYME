@@ -2,7 +2,7 @@
 
 ---
 
-Bienvenue sur shopMe, une plateforme de e-commerce moderne construite de zéro avec les meilleures pratiques et technologies web actuelles.
+Bienvenue sur BuyMe, une plateforme de e-commerce moderne construite de zéro avec les meilleures pratiques et technologies web actuelles.
 
 ## Description
 
