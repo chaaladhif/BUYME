@@ -1,25 +1,15 @@
-import "./style.css";
-import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import { login } from "../../services/authService";
+import { Link } from "react-router-dom";
+import useAuthStore from "../../services/authService";
+import "./style.css";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+    const { login, error } = useAuthStore();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await login(email, password);
-            if (response.user) {
-                localStorage.setItem("user", JSON.stringify(response.user));
-                navigate("/");
-            } else {
-                alert(response.message);
-            }
-        } catch (error) {
-            console.error("Error during login:", error);
-        }
+        await login(email, password);
     };
 
     return (
@@ -27,6 +17,7 @@ function Login() {
             <div className="login-form">
                 <h2>ACCÉDEZ À VOTRE COMPTE</h2>
                 <form onSubmit={handleSubmit}>
+                    {error && <p className="error">{error}</p>}
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input

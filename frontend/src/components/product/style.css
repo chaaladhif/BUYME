@@ -4,8 +4,10 @@
     transition: box-shadow 0.3s;
     position: relative;
 }
+.favorite-product-style {
+    width: 60%;
+}
 .product:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .product-img {
     width: 85%;
@@ -22,6 +24,7 @@
 .heart {
     color: #fff;
 }
+
 .icon-button {
     background: none;
     border: none;
@@ -31,7 +34,6 @@
     position: absolute;
     right: 15%;
     z-index: 1;
-
     font-size: 1.5em;
 }
 

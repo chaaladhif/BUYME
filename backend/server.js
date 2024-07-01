@@ -1,43 +1,57 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const Product = require('./models/product');
+const User = require('./models/User');
 
 const app = express();
-const PORT = 5000;
+app.use(express.json());
 
-app.use(cors());
-app.use(bodyParser.json());
-
-let users = []; // Pour stocker les utilisateurs temporairement
-
-// Route d'inscription
-app.post('/api/auth/register', (req, res) => {
+mongoose.connect('mongodb+srv://chaala:Dawaicha1950@cluster0.mi2918z.mongodb.net/test?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+app.post('/api/signup', async (req, res) => {
+  try {
     const { email, password } = req.body;
-    const user = { id: Date.now(), email, password };
-    users.push(user);
-    res.status(201).json({ message: 'User registered successfully', user });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ email, password: hashedPassword });
+    await user.save();
+    res.status(201).send({ message: 'User created successfully' });
+  } catch (error) {
+    res.status(500).send({ message: 'Error creating user' });
+  }
 });
 
-// Route de connexion
-app.post('/api/auth/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
+  try {
     const { email, password } = req.body;
-    const user = users.find(user => user.email === email && user.password === password);
-    if (user) {
-        res.status(200).json({ message: 'Login successful', user });
-    } else {
-        res.status(401).json({ message: 'Invalid email or password' });
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).send({ message: 'Invalid email or password' });
     }
-});
-// Route pour vérifier si un e-mail existe déjà
-app.post('/api/auth/check-email', (req, res) => {
-    const { email } = req.body;
-    const existingUser = users.find(user => user.email === email);
-    if (existingUser) {
-        res.status(200).json({ exists: true });
-    } else {
-        res.status(200).json({ exists: false });
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(400).send({ message: 'Invalid email or password' });
     }
+    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
+    res.send({ token });
+  } catch (error) {
+    res.status(500).send({ message: 'Error logging in' });
+  }
 });
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+
+app.post('/api/products', async (req, res) => {
+  try {
+    const { title, description, imageUrl, userId, price } = req.body;
+    const product = new Product({ title, description, imageUrl, userId, price });
+    await product.save();
+    res.status(201).send({ message: 'Product created successfully' });
+  } catch (error) {
+    res.status(500).send({ message: 'Error creating product' });
+  }
 });
+
+app.listen(3000, () => console.log('Server running on port 3000'));

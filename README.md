@@ -10,7 +10,7 @@ Bienvenue sur BuyMe, une plateforme de e-commerce moderne construite de zéro av
 
 ---
 
-shopMe est une plateforme de commerce en ligne permettant aux utilisateurs de parcourir, rechercher et acheter divers produits. Le site offre une expérience utilisateur fluide et intuitive, intégrant des fonctionnalités modernes pour gérer les produits, les utilisateurs, les commandes, et bien plus encore.
+Buyme est une plateforme de commerce en ligne permettant aux utilisateurs de parcourir, rechercher et acheter divers produits. Le site offre une expérience utilisateur fluide et intuitive, intégrant des fonctionnalités modernes pour gérer les produits, les utilisateurs, les commandes, et bien plus encore.
 
 ## Fonctionnalités
 
@@ -84,14 +84,14 @@ MongoDB
    git clone https://github.com/chaaladhif/BUYME.git
 
 2. Go to the project directory
-   cd shopme
+   cd BUYME
 
 3. Install dependencies
-   npm install
-
+   cd backend => npm install 
+   cd frontend => npm install 
 4. Start the Backend
    cd backend
-   yarn dev
+   npm run start
 5. Start the frontend
    cd frontend
-   npm start
+   yarn dev

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import "./style.css";
 
 function Product({
@@ -9,15 +8,17 @@ function Product({
     onFavoriteToggle,
     isFavorite,
     product,
-    onAddToCart,
-    onRemoveFromCart,
     showFavoriteButton = true,
-    showAddButton = true,
-    showRemoveButton = false,
+    isFavoritePage = false,
 }) {
     return (
-        <div className="product">
-            <Link to="/Product">
+        <div
+            className={`product ${
+                isFavoritePage ? "favorite-product-style" : ""
+            }`}
+        >
+            {" "}
+            <Link to={`/product/${product.id}`}>
                 <img src={imageURL} alt={title} className="product-img" />
             </Link>
             {showFavoriteButton && (
@@ -27,7 +28,7 @@ function Product({
                             ? "icon-button heart clicked"
                             : "icon-button heart"
                     }
-                    onClick={onFavoriteToggle}
+                    onClick={() => onFavoriteToggle(product)} // Appelle la fonction pour ajouter ou retirer le produit des favoris
                 >
                     <i
                         className={
@@ -41,22 +42,6 @@ function Product({
             <div className="product-title">{title}</div>
             <div className="product-icons">
                 <div className="product-price">{price} €</div>
-                {showAddButton && (
-                    <button
-                        className="icon-button"
-                        onClick={() => onAddToCart(product)}
-                    >
-                        <i className="fa-solid fa-plus icon"></i>
-                    </button>
-                )}
-                {showRemoveButton && (
-                    <button
-                        className="icon-button"
-                        onClick={() => onRemoveFromCart(product)}
-                    >
-                        <i className="fa-solid fa-minus icon"></i>
-                    </button>
-                )}
             </div>
         </div>
     );

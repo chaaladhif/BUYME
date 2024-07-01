@@ -16,19 +16,10 @@ function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
     const filteredProducts = products.filter((product) =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
-    const handleFavoriteToggle = (product) => {
-        if (favorites.some((fav) => fav.id === product.id)) {
-            setFavorites(favorites.filter((fav) => fav.id !== product.id));
-        } else {
-            setFavorites([...favorites, product]);
-        }
-    };
-
     const handleAddToCart = (product) => {
-        setCart([...cart, product]); // Ajouter le produit au panier
+        setCart([...cart, product]);
+        setFavorites(favorites.filter((fav) => fav.id !== product.id));
     };
-
     return (
         <div>
             <Banner />
@@ -40,15 +31,29 @@ function Home({ searchTerm, favorites, setFavorites, cart, setCart }) {
                         title={product.title}
                         price={product.price}
                         product={product}
-                        onFavoriteToggle={() => handleFavoriteToggle(product)}
+                        onFavoriteToggle={(product) => {
+                            if (
+                                favorites.some((fav) => fav.id === product.id)
+                            ) {
+                                setFavorites(
+                                    favorites.filter(
+                                        (fav) => fav.id !== product.id
+                                    )
+                                );
+                            } else {
+                                setFavorites([...favorites, product]);
+                            }
+                        }}
                         isFavorite={favorites.some(
                             (fav) => fav.id === product.id
                         )}
-                        onAddToCart={() => handleAddToCart(product)}
                     />
                 ))}
             </div>
-            <Favorie favorites={favorites} handleAddToCart={handleAddToCart} />
+            <Favorie
+                favorites={favorites}
+                handleAddToCart={handleAddToCart} // Passer handleAddToCart en tant que prop
+            />{" "}
         </div>
     );
 }
